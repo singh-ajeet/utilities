@@ -13,10 +13,15 @@ public final class BytesToHex {
 
         char[] hexArray = new char[bytes.length * 2];
         for (int i=0; i<bytes.length; i++){
-            hexArray[i++] = (char) (bytes[i] & 0xf0 >>> 4); // First byte
-            hexArray[i++] = (char) (bytes[i] & 0x0f); // Second byte
+            hexArray[i++] = Character.forDigit((bytes[i] >> 4) & 0xF0, 16); // First byte
+            hexArray[i++] = Character.forDigit (bytes[i] & 0x0F, 16); // Second byte
         }
 
         return String.valueOf(hexArray);
     }
+
+/*    public static byte[] bytes(String hex){
+        Character.digit();
+        return null;
+    }*/
 }
